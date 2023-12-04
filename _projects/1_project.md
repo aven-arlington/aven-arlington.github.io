@@ -1,6 +1,7 @@
 ---
 layout: page
 title: project 1
+date: 2023-12-01 08:00:00-0000
 description: a project with a background image
 img: assets/img/12.jpg
 importance: 1

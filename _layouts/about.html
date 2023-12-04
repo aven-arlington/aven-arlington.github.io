@@ -53,6 +53,12 @@ layout: default
             {%- include latest_posts.html %}
           {%- endif %}
 
+          <!-- Latest projects -->
+          {% if page.latest_projects -%}
+            <h2><a href="{{ '/projects/' | relative_url }}" style="color: inherit;">Recent Project Updates</a></h2>
+            {%- include latest_projects.html %}
+          {%- endif %}
+
           <!-- Selected papers -->
           {% if page.selected_papers -%}
             <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">selected publications</a></h2>

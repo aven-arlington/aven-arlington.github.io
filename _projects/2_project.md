@@ -1,6 +1,7 @@
 ---
 layout: page
 title: project 2
+date: 2023-12-02 08:00:00-0000
 description: a project with a background image and giscus comments
 img: assets/img/3.jpg
 importance: 2
