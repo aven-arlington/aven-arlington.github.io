@@ -18,7 +18,7 @@ social: true  # includes social icons at the bottom of the page
 latest_projects: true
 ---
 
-Personal webpage for [Aven Arlington](mailto:aven.arlington@gmail.com).
+Welcome to my professional/personal webpage.
 
 <!--
 Write about.md text here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
