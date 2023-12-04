@@ -1,10 +1,10 @@
 
           <div class="news">
             {% if site.latest_projects != blank -%}
-            {%- assign latest_projects_size = site.posts | size -%}
+            {%- assign latest_projects_size = site.projects | size -%}
             <div class="table-responsive" {% if site.latest_projects.scrollable and latest_projects_size > 3 %}style="max-height: 60vw"{% endif %}>
               <table class="table table-sm table-borderless">
-              {%- assign latest_projects = site.projects -%}
+              {%- assign latest_projects = site.projects | sort: "date" | reverse -%}
               {% if site.latest_projects.limit %}
               {% assign latest_projects_limit = site.latest_projects.limit %}
               {% else %}

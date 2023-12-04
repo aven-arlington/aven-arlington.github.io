@@ -1,6 +1,7 @@
 ---
 layout: page
 title: project 6
+date: 2023-10-09 08:00:00-0000
 description: a project with no image
 img:
 importance: 4

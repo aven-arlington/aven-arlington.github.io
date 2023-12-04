@@ -1,6 +1,7 @@
 ---
 layout: page
 title: project 3
+date: 2023-11-29 08:00:00-0000
 description: a project that redirects to another website
 img: assets/img/7.jpg
 redirect: https://unsplash.com
