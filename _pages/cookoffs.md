@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /cookoffs/
-title: Cookoffs
+title: Cook-off
 description: Official rules for the Cookoff series at the Twisted Fork Saloon.
 nav: true
 nav_order: 4

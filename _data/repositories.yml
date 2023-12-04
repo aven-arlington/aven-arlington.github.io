@@ -1,12 +1,6 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - aven-arlington
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - aven-arlington/flashcards-cli
+  - aven-arlington/nvim
