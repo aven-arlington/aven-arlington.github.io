@@ -5,7 +5,7 @@ title: Cook-off
 description: Official rules for the Cookoff series at the Twisted Fork Saloon.
 nav: true
 nav_order: 4
-display_categories: [Fall 2023, Winter 2023]
+display_categories: [Fall 2023, Winter 2023-2024]
 horizontal: false
 ---
 
