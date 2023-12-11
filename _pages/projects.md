@@ -5,7 +5,7 @@ permalink: /projects/
 description: A portfolio of personal projects
 nav: true
 nav_order: 1
-display_categories: [Sort Analysis] # Add work, fun to view the samples
+display_categories: [RPi Stock Checker] # Add work, fun to view the samples
 horizontal: false
 ---
 
