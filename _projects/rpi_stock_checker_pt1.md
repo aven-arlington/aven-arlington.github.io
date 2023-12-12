@@ -7,6 +7,8 @@ img: assets/img/win_notification.png
 importance: 1
 category: RPi Stock Checker
 giscus_comments: true
+toc:
+  sidebar: left
 ---
 ## Background
 The Raspberry Pi 5 has begun shipping to distributors across the globe and I am excited to get my hands on one.

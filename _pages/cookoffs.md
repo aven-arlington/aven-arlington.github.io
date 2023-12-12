@@ -2,7 +2,8 @@
 layout: page
 permalink: /cookoffs/
 title: Cook-off
-description: Official rules for the Cookoff series at the Twisted Fork Saloon.
+description: "Since I love a good Texas chili, I have worked with a local business, The Twisted Fork Saloon, to host a monthly cook-off competition amongst friends and patrons."
+note: Below are the official rules for the monthly Cook-off series at the Twisted Fork.
 nav: true
 nav_order: 4
 display_categories: [Fall 2023, Winter 2023-2024]

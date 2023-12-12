@@ -53,6 +53,11 @@
 - title: Open Source Projects
   type: time_table
   contents:
+    - title: <a href="https://github.com/aven-arlington/rpi-stock-checker">Raspberry Pi Stock Checker</a>
+      year: 2023
+      description: >
+        A Rust based RSS reader that checks current stock levels for the newly released Raspberry Pi 5 and triggers
+        a Windows Toast Notification when stock is detected.
     - title: <a href="https://github.com/aven-arlington/flashcards-cli">Flashcards CLI</a>
       year: 2023
       description: >
