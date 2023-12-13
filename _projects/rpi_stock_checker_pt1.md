@@ -7,6 +7,7 @@ img: assets/img/win_notification.png
 importance: 1
 category: RPi Stock Checker
 giscus_comments: true
+giscus_repo: aven-arlington/rpi-stock-checker
 toc:
   sidebar: left
 ---

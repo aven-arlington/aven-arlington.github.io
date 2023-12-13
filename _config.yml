@@ -136,6 +136,8 @@ related_blog_posts:
 # Follow instructions on https://giscus.app/ to setup for your repo to fill out
 # the information below.
 giscus:
+  # I have the giscus re-configured to be a page specific varaible so that each project can have
+  # it's own discussion
   repo: aven-arlington/aven-arlington.github.io # <your-github-user-name>/<your-github-repo-name>
   category: Comments             # name of the category under which discussions will be created
   mapping: title                 # identify discussions by post title
