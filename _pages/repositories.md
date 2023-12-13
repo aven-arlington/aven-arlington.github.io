@@ -7,9 +7,10 @@ nav: true
 nav_order: 2
 ---
 
-<!-- Display projects without categories 
-## GitHub users
 
+## User name: [aven-arlington](https://github.com/aven-arlington)
+
+<!-- Hiding this section because the stats don't provide value for me yet.
 Edit the `_data/repositories.yml` and change the `github_users` and `github_repos` lists to include your own GitHub profile and repositories.
 
 {% if site.data.repositories.github_users %}
@@ -35,8 +36,6 @@ Edit the `_data/repositories.yml` and change the `github_users` and `github_repo
 {% endfor %}
 {% endif %}
 {% endif %}
-
-## GitHub Repositories
 -->
 
 {% if site.data.repositories.github_repos %}

@@ -66,7 +66,7 @@ fn main() -> windows::core::Result<()> {
 ```
 
 Executing the program results in the the output which in turn matches the live website.
-That means we now have feed data to work with.
+That means I now have feed data to work with.
 ```cmd
 PS C:\rpi-stock-checker> cargo run
    Compiling rpi-stock-checker v0.1.0 (C:\rpi-stock-checker)
@@ -79,18 +79,18 @@ Stock Alert (US): RPi CM4 - 8GB RAM, No MMC, No Wifi is In Stock at Pishop 250 u
 ```
 
 ## Parsing the Feed
-Having the feed data is great, but our main goal is to have the program search the feed for the
-item we are interested in.
+Having the feed data is great, but the main goal is to have the program search the feed for the
+item I'm interested in.
 
-Lets start with some refactoring. When we call RetrieveFeedAsync there is a
+Lets start with some refactoring. When RetrieveFeedAsync is called there is a
 possibility that the call will fail if, for example, if the internet connection is interrupted.
-We want our program to be running in the background for long period of time and will need to
-handle the occasional connection hiccup gracefully. To facilitate handling the types of errors
-we expect to encounter the most often, we will have a separate function for checking the feed.
+I want the program to be running in the background for long period of time and will need to
+handle the occasional connection hiccup gracefully. To facilitate handling these connection errors,
+a separate function is created for checking the feed.
 
-The check_feed function does all the heavy lifting to pull the RSS feed. We pass in a reference
-to the SyndicationClient and call RetrieveFeedAsync with it. If the connection fails, we return
-a Err result. If the connection is successful, we create a Vector of Strings to hold the feeds
+The check_feed function does all the heavy lifting to pull the RSS feed. It takes a reference
+to the SyndicationClient and then calls RetrieveFeedAsync with it. If the connection fails,
+a Err result is returned. If the connection is successful, I create a Vector of Strings to hold the feeds
 and return that to the caller.
 ```rust
 fn check_feed(client: &SyndicationClient) -> Result<Vec<String>> {
@@ -105,8 +105,8 @@ fn check_feed(client: &SyndicationClient) -> Result<Vec<String>> {
 }
 ```
 
-This approach allows us to branch execution based on a success or failure. If we get a failure
-we should simply print a courtesy string to stdout and then wait a few minutes to check again.
+This approach allows me to branch execution based on a success or failure. If a failure is returned
+I simply print a courtesy string to stdout and then wait a few minutes to check again.
 ```rust
 loop {
     match check_feed(&client) {
@@ -124,9 +124,9 @@ loop {
 }
 ```
 
-Now that we have feed data coming in every 5 minutes, we need to filter out the feed items we have already
-seen and move on to the next. Items that haven't been seen before are printed to stdout with a timestamp
-so we can tell our program is running.
+Now that feed data coming in every 5 minutes, I need to filter out the feed items that were detected
+in a previous read attempt, if a previous read was successful. Items that haven't been seen before are printed to stdout with a timestamp
+so that a user can tell that the program is running.
 ```rust
 Ok(new_feeds) => {
     for feed in new_feeds {
@@ -141,14 +141,17 @@ Ok(new_feeds) => {
 }
 ```
 
-Now we want to send a Windows Toast notification when we find a product that matches our search string.
-We create another standalone function to handle the notification process and pass it the new feed item.
-The notify function then checks for the presence of our search string and it it matches, will initiate
+Now I want to send a Windows Toast notification when a product that matches the search string is detected in a feed.
+Another standalone function is created to handle the notification process that takes the new feed item as input.
+The notify function then checks for the presence of the search string and it it matches, will initiate
 the Windows Toast Notification. 
 
 The process of creating and sending a notification involves creating ToastNotification object and then
-showing it. Notifications are built from XML so we create a XmlDocument from a template, and then update
-the "text" node in that document with a new XmlText item that contains our feed item string.
+showing it. Notifications are built from XML so an empty XmlDocument is created from a template. The newly created
+XmlDocument contains a single node that can be repurposed to display the notification text. GetElementsByTagName returns
+the IXmlNode tagged "text" that was included in the XmlDocument template. A new XmlText object is then created from the feed
+string and appended to the text node. Finally, the XmlDocument is passed to the CreateToastNotification function which creates
+the notification object.
 ```rust
 fn notify(feed: &String) -> Result<()> {
     if feed.contains(SEARCH_STRING) {
@@ -168,8 +171,8 @@ fn notify(feed: &String) -> Result<()> {
 ```
 
 
-Once we have a ToastNotification object with our feed item text, we provide it to the ToastNotificationManager
-to handle showing it. Note: showing the notification requires the AUMID from the application running the
+With a ToastNotification object that contains the feed item text, the ToastNotificationManager can
+handle the details of showing it to the user. Note: showing the notification requires the AUMID from the application running the
 executable. In my case it is PowerShell 7.0. More on that below...
 ```rust
 ToastNotificationManager::GetDefault()?
@@ -195,15 +198,15 @@ PS C:\rpi-stock-checker> Get-StartApps powershell
 ```
 
 ## Wrapping Up
-Once we have all these pieces in place, main.rs should look something like the code below.
+With all these pieces in place, main.rs now looks something like the code below.
 The application gets the RSS feeds from the source, removes duplicates, and searches them
-for the product we are interested in. The application is fault tolerant of network outages
-and will re-try failed connections. And finally, if our product of interest is found, we get
-a windows notification to let us know it is in stock somewhere!
+for the product the user is interested in. The application is fault tolerant of network outages
+and will re-try failed connections. And finally, if the product of interest is found,
+a windows notification is sent to let the user know that it is in stock somewhere!
 
 ## Next Steps
 There is still more to improve! To take the app even further, the next installment will
-break our code into manageable modules and add some unit testing.
+break this code into manageable modules and add some unit testing.
 
 ## Code
 [Source Code on GitHub](https://github.com/aven-arlington/rpi-stock-checker/tree/v0.1)

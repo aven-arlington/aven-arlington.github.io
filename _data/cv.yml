@@ -50,6 +50,20 @@
         - Provided technical support for products in the automotive/transportation test space.
         - Communicated with customers of different backgrounds to resolve support issues effectively.
 
+- title: Scott Laboratories / Grace Clinic
+  # TO DO description not displaying - need to fix
+  description: Research and development of innovative medical devices.
+  type: time_table
+  contents:
+    - title: Hardware / Software Technician
+      #institution: National Instruments (now part of Emerson)
+      year: 2000 - 2010
+      description:
+        - Assemble prototypes of circuit boards according to schematics.
+        - Test assembled circuit boards to ensure operation is within specifications.
+        - Create functional prototypes of systems for market feasibility studies.
+        - Identify and perform experiments to establish proof of concept.
+
 - title: Open Source Projects
   type: time_table
   contents:
@@ -64,7 +78,7 @@
         A simple command line utility written in Rust
         that allows users to define flashcards in a yaml/json file
         and test themselves against randomly drawn cards.
-    - title: <a href="https://github.com/aven-arlington/aven-arlington.github.io">This website</a>
+    - title: <a href="https://github.com/aven-arlington/aven-arlington.github.io">E-Portfolio</a>
       year: 2023
       description: >
         A personal website powered by Jekyll with the Al-Folio theme and hosted with GitHub Pages. 
@@ -93,4 +107,4 @@
 - title: Other Interests
   type: list
   contents:
-    - Sailing, regattas, kayaking, and boating in general.
+    - Sailing, regattas, leather crafting, photography, and cook-offs
