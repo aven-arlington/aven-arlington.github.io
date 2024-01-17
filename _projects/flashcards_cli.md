@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Flashcards Pt 1
+title: Flashcards Pt.1
 date: 2024-01-16 00:00:00-0000
 description: Simple CLI utility that quizzes a user on custom clue-answer pairs
 img: assets/img/flashcards_cli_thumbnail.png
