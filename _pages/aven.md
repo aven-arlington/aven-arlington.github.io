@@ -6,7 +6,7 @@ subtitle: Senior Software Developer
 
 profile:
   align: right
-  image: prof_pic.png
+  image: LinkedinCroppedBlackJacketWhiteShirtGreyBg.png
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>Tacoma WA</p>
