@@ -148,28 +148,29 @@ message UpdateRpcResponse {
 </code></pre></div></div> <p>The AI node processes each “unit” like it would in a real game by modifying all the fields to random values and packaging them in a struct. I also have some timers in place to measure the elapsed time for data processing with some build in overhead, represented by a sleep timer, to simulate a more robust processing loop. This performance information is added to the the response data so it can be logged by the game simulation server. It is very similar to the code above and not much value to the discussion on gRPC.</p> <p>I will note that in order to write tests that call <code class="language-plaintext highlighter-rouge">async</code> functions like <code class="language-plaintext highlighter-rouge">request_update</code> they will need to be adorned with the <code class="language-plaintext highlighter-rouge">#[tokio::test(flavor = "multi_thread")]</code> attribute.</p> <h2 id="summary">Summary</h2> <p>Only portions of the code relating specifically to gRPC were detailed here but the entire project can be cloned, built, and executed for experimentation. <a href="https://github.com/berrybattle/berry-battler/tree/v0.0.2" rel="external nofollow noopener" target="_blank">The AI Node</a> <a href="https://github.com/berrybattle/berry-battle-server/tree/v0.0.2" rel="external nofollow noopener" target="_blank">The Simulation Server</a></p> <p>By default, the source is configured to have both the AI node and the simulation server running on the same machine with a localhost connection. To run the code on separate machines, change “[::1]” to an IP address or host name.</p> <p>The AI node should be started first with <code class="language-plaintext highlighter-rouge">cargo run</code> in either <code class="language-plaintext highlighter-rouge">release</code> or <code class="language-plaintext highlighter-rouge">debug</code> configurations.</p> <p>Running the tests on the server can be done with <code class="language-plaintext highlighter-rouge">cargo test --release -- --nocapture</code> since the benchmarking code is wrapped in a test.</p> <p>The output should look like this:</p> <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">Connecting to gRPC server
 To simulate unit processing e.g. running A* etc on each unit
 Apply constant processing time of 100000ns per unit
+
  Unit Count | Processing Time (us) | Latency (us) |
-          0 |                    0 |         7871 |
-         10 |                 1063 |        20954 |
-         20 |                 2066 |       109867 |
-         30 |                 3065 |         7385 |
-         40 |                 4066 |         8117 |
-         50 |                 5066 |         8899 |
-         60 |                 6069 |        10296 |
-         70 |                 7069 |        10506 |
-         80 |                 8069 |        10638 |
-         90 |                 9074 |        27560 |
-        100 |                10078 |        14235 |
-        110 |                11075 |        54120 |
-        120 |                12082 |       106646 |
-        130 |                13080 |        32087 |
-        140 |                14080 |        18808 |
-        150 |                15081 |        19885 |
-        160 |                16087 |        20293 |
-        170 |                17085 |        21014 |
-        180 |                18086 |        22297 |
-        190 |                19088 |        98747 |
-        200 |                20096 |        23289 |
+          0 |                    0 |         4303 |
+         10 |                 1064 |         6020 |
+         20 |                 2062 |         5174 |
+         30 |                 3064 |         7636 |
+         40 |                 4065 |         7991 |
+         50 |                 5067 |         9615 |
+         60 |                 6070 |        10414 |
+         70 |                 7070 |        11162 |
+         80 |                 8073 |        12808 |
+         90 |                 9076 |        13594 |
+        100 |                10076 |        14536 |
+        110 |                11078 |        14693 |
+        120 |                12076 |        15957 |
+        130 |                13081 |        17615 |
+        140 |                14080 |        18390 |
+        150 |                15082 |        19572 |
+        160 |                16084 |        20517 |
+        170 |                17108 |        21769 |
+        180 |                18091 |        22967 |
+        190 |                19090 |        23434 |
+        200 |                20091 |        24743 |
 test tests::test_node_performance ... ok
 
 </span><span class="gp">test result: ok. 1 passed;</span><span class="w"> </span>0 failed<span class="p">;</span> 0 ignored<span class="p">;</span> 0 measured<span class="p">;</span> 0 filtered out<span class="p">;</span> finished <span class="k">in </span>0.66s
