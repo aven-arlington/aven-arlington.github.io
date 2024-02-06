@@ -5,3 +5,5 @@ github_repos:
   - aven-arlington/rpi-stock-checker
   - aven-arlington/flashcards-cli
   - aven-arlington/nvim
+  - berrybattle/berry-battle-server
+  - berrybattle/berry-battler

@@ -5,7 +5,7 @@ permalink: /projects/
 description: A portfolio of personal projects with an emphasis on embedded, IoT, games, and graphics programming.
 nav: true
 nav_order: 1
-display_categories: [Berry Battle, Flashcards, RPi Stock Checker] # Add work, fun to view the samples
+display_categories: [Embedded Hardware, Berry Battle, Flashcards, RPi Stock Checker] # Add work, fun to view the samples
 horizontal: false
 ---
 
