@@ -206,8 +206,6 @@ When the build completes, I check the ```gateware/bitstream/LinuxProgramming``` 
 
 I then take a look at the board and see user LED 5 flashing on and off like I would expect! I took a scope to the output to check the timing and noticed that when the pin is in a "High" state it is actually super noisy around 1.5 volts. I surmise there is a problem with the logic that is causing the pin to turn on and off faster than my scope can measure. I will have to investigate further when I make part 2.
 
-## Wrapping Up
-
 ## Next Steps
 
 - The logic doesn't appear to be working quite right so I need to investigate that and figure out what is going on.
